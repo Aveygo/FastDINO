@@ -11,16 +11,18 @@ class DINO1D(torch.nn.Module):
     def distillation_loss(self, x, tau_s, tau_t):
         # primary_output [b, c, width]
         
+        encoded = self.primary.encoder(x)
+        
         with torch.no_grad():
-            teacher = self.primary.encoder(x)
-            teacher_features = teacher.mean(-1)   
+            
+            teacher_features = encoded.detach().mean(-1)   
             #print(teacher.shape, teacher.mean(-1).shape, teacher.mean(0).shape) 
             teacher_output = teacher_features - teacher_features.mean(0)
             teacher_output = teacher_output.unsqueeze(-1)
             #print(teacher_output.shape)
         
         teacher_output = teacher_output.detach()
-        student_output = self.primary.encoder(x)
+        student_output = encoded
 
         student_probs = F.log_softmax(student_output / tau_s, dim=1)
         teacher_probs = F.softmax(teacher_output / tau_t, dim=1)
