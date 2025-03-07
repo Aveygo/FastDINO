@@ -10,7 +10,7 @@ For a supervised model to be successful, it must learn rich representations of t
 ## Autoencoder / "bottleneck" approach
 This is a more conventional method of creating embeddings from the input data. It works by "compressing" and then "decompressing" the input. The reasoning goes that this forces the model to learn important features that are commonly represented, and to reconstruct the original image from the latent space efficiency.
 
-The main drawback to this approach is that the embeddings it produces are normally quite large. Even if the sole purpose is to create the embeddings, you must train BOTH the encoder and the decoder, even if you will only end up using the encoder for inferencing.
+The main drawback to this approach is that the embeddings it produces are normally quite large, and even if the sole purpose is to create the embeddings, you must train BOTH the encoder and the decoder.
 
 Nonetheless, this method is widely used in image diffusion (both the encoder and decoder) as it serves to stabilize training by introducing pre-learned features. Other tasks such as zero-shot classification or object detection are infeasible due to the large latent variable, in combination with the high compute costs of the encoder.
 
