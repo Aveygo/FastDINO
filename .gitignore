@@ -1,0 +1,5 @@
+*.npy
+*.json
+.vscode/
+*__pycache__*
+logs/
