@@ -37,11 +37,6 @@ As a *very* rough prototype, I trained my method on my own personal collection o
 
 As you can see, the T-SNE reduction clearly identifies prominent clusters. When I was manually exploring this data, each cluster was surprising well-defined with a specific genre or artist.
 
-As a point of rough point of comparison, music2vec took several days on 8 A100s, but It's very important to mention that I still need to preform analytical results on their dataset, and not just mine.
-
-# Inference Performance
-For 40 seconds of music (mel=80, rate=16khz), FastDINO inference takes 2.20 milliseconds, which is almost twice faster than music2vec's 4.01 milliseconds!
-
 # Final Notes
 
 I mainly hope to show a proof of concept before moving into the vision domain to directly compete with DINO. 
