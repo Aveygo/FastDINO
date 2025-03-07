@@ -1,7 +1,7 @@
 # FastDINO
 
 # TLDR
-This is a fun experimental method which produces a self-supervised model that trains far faster than conventional methods.
+This is a fun experimental project to hopefully produce a self-supervised model that trains faster that DINO.
 
 # Self-Supervised Embeddings Overview
 
